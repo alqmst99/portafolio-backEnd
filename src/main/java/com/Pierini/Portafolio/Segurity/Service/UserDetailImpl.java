@@ -1,4 +1,3 @@
-
 package com.Pierini.Portafolio.Segurity.Service;
 
 import com.Pierini.Portafolio.Segurity.Entity.Usuario;
@@ -11,18 +10,22 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author Pieirni Nahuel Nicolas 
+ * @author Pieirni Nahuel Nicolas
  */
 @Service
 public class UserDetailImpl implements UserDetailsService {
+
     @Autowired
     UsuarioService usuarioService;
 
-    @Override
-    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
- Usuario usuario= usuarioService.getByNameUser(userName).get();
- return UsuarioPrincipal.build(usuario);
-    }
     
-
+    @Override
+    public UserDetails loadUserByUsername(String nameUser) throws UsernameNotFoundException {
+ 
+              Usuario usuario = usuarioService.getByUser(nameUser).get();
+                return UsuarioPrincipal.build(usuario);
+   
+    }
 }
+
+

@@ -18,9 +18,11 @@ public class DtoExperience {
     private String dateF;
     //constructors
 
+   
     public DtoExperience() {
     }
 
+ 
     public DtoExperience(String nameE, String descE, String dateI, String dateF) {
         this.nameE = nameE;
         this.descE = descE;
@@ -29,10 +31,13 @@ public class DtoExperience {
     }
 
     //Getters & Setters
+
+   
     public String getNameE() {
         return nameE;
     }
 
+   
     public void setNameE(String nameE) {
         this.nameE = nameE;
     }
@@ -41,22 +46,27 @@ public class DtoExperience {
         return descE;
     }
 
+   
     public void setDescE(String descE) {
         this.descE = descE;
     }
 
+   
     public String getDateI() {
         return dateI;
     }
 
+   
     public void setDateI(String dateI) {
         this.dateI = dateI;
     }
 
+   
     public String getDateF() {
         return dateF;
     }
 
+  
     public void setDateF(String dateF) {
         this.dateF = dateF;
     }

@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author Pieirni Nahuel Nicolas
  */
+
 @Service
 @Transactional
 public class RolService {
@@ -22,7 +23,8 @@ public class RolService {
     public Optional<Rol> getByRolName(RolName rolName) {
         return irolRepo.findByRolName(rolName);
     }
-    public  void save(Rol rol){
+
+    public void save(Rol rol){
         irolRepo.save(rol);
     }
 }

@@ -26,9 +26,11 @@ public class Experience {
     private String descE;
     //constructor
 
+    
     public Experience() {
     }
 
+    
     public Experience(String nameE, String dateI, String dateF, String descE) {
         this.nameE = nameE;
         this.dateI = dateI;
@@ -37,42 +39,52 @@ public class Experience {
     }
     //Getters & Setters
 
+    
     public int getId() {
         return id;
     }
 
+   
     public void setId(int id) {
         this.id = id;
     }
 
+   
     public String getNameE() {
         return nameE;
     }
 
+    
     public void setNameE(String nameE) {
         this.nameE = nameE;
     }
 
+   
     public String getDateI() {
         return dateI;
     }
 
+    
     public void setDateI(String dateI) {
         this.dateI = dateI;
     }
 
+    
     public String getDateF() {
         return dateF;
     }
 
+    
     public void setDateF(String dateF) {
         this.dateF = dateF;
     }
 
+   
     public String getDescE() {
         return descE;
     }
 
+    
     public void setDescE(String descEd) {
         this.descE = descEd;
     }

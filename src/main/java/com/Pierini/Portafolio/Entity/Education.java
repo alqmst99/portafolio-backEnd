@@ -23,9 +23,11 @@ public class Education {
     private String descEd;
 //Constructors
 
+  
     public Education() {
     }
 
+    
     public Education(String nameE, String dateI, String dateF, String descEd) {
         this.nameE = nameE;
         this.dateI = dateI;
@@ -38,38 +40,47 @@ public class Education {
         return id;
     }
 
+   
     public void setId(int id) {
         this.id = id;
     }
 
+    
     public String getNameE() {
         return nameE;
     }
 
+    
     public void setNameE(String nameE) {
         this.nameE = nameE;
     }
 
+   
     public String getDateI() {
         return dateI;
     }
 
+    
     public void setDateI(String dateI) {
         this.dateI = dateI;
     }
 
+    
     public String getDateF() {
         return dateF;
     }
 
+    
     public void setDateF(String dateF) {
         this.dateF = dateF;
     }
 
+   
     public String getDescEd() {
         return descEd;
     }
 
+    
     public void setDescEd(String descEd) {
         this.descEd = descEd;
     }

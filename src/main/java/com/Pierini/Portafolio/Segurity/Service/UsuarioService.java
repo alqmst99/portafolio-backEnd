@@ -18,16 +18,24 @@ import org.springframework.transaction.annotation.Transactional;
 public class UsuarioService {
 @Autowired
 IUsuarioRepo iusuarioRepo;
-public Optional<Usuario> getByNameUser(String nameUser){
+
+  
+    public Optional<Usuario> getByUser(String nameUser){
     return iusuarioRepo.findByNameUser(nameUser);
 }
-public boolean existsByNameUser(String nameUser){
+
+
+    public boolean existsByUser(String nameUser){
     return iusuarioRepo.existsByNameUser(nameUser);
 }
-public boolean existsByEmail(String email){
+
+
+    public boolean existsByEmail(String email){
     return iusuarioRepo.existsByEmail(email);
 }
-public void save(Usuario usuario){
+
+ 
+    public void save(Usuario usuario){
   iusuarioRepo.save(usuario);
 }
 

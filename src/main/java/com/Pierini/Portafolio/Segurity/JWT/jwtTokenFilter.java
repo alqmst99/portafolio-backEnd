@@ -27,13 +27,14 @@ JwtProvider jwtProvider;
 @Autowired
 UserDetailImpl userDetailServiceImpl;
 
-@Override   
+  
+    @Override   
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
     try {
        String token= getToken(request);
        if(token != null && jwtProvider.valiateToken(token)){
-           String nameUser= jwtProvider.getNameUserFromToken(token);
-           UserDetails userdetails= userDetailServiceImpl.loadUserByUsername(token);
+           String nameUser = jwtProvider.getNameUserFromToken(token);
+           UserDetails userdetails= userDetailServiceImpl.loadUserByUsername(nameUser);
            UsernamePasswordAuthenticationToken auth= new UsernamePasswordAuthenticationToken (userdetails, null, userdetails.getAuthorities());
 
            SecurityContextHolder.getContext().setAuthentication(auth);
@@ -48,8 +49,8 @@ UserDetailImpl userDetailServiceImpl;
 
     private String getToken(HttpServletRequest request) {
         String header =request.getHeader("Authorization");
-        if (header != null && header.startsWith("Bearer"))
-            return header.replace("Bearer","");
+        if (header != null && header.startsWith("Bearer "))
+            return header.replace("Bearer ","");
         return null;
     }
     

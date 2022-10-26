@@ -1,57 +1,42 @@
-package com.Pierini.Portafolio.Entity;
-
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-
-
- /**
- *
- * @author Nahuel Pierini
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-@Entity
-public class Person {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY )
-    private int id;
-    @NotNull
-    
-    private String name;
-    @NotNull
-    private String lastName;
-    @NotNull
-    private String descP;
-    @NotNull
-    private String imgP;
+package com.Pierini.Portafolio.Dto;
 
-    /**
-     *
-     */
-    public Person() {
+import javax.validation.constraints.NotBlank;
+
+/**
+ *
+ * @author Pieirni Nahuel Nicolas 
+ *@email nahuel.pierini90@hotmail.com
+ */
+public class DtoPerson {
+    @NotBlank
+private String name;
+@NotBlank
+    private String lastName;
+  @NotBlank
+    private String descP;
+   @NotBlank
+    private String imgP;
+//constructor
+
+   
+    public DtoPerson() {
     }
 
    
-    public Person(String name, String lastName, String descP, String imgP) {
+    public DtoPerson(String name, String lastName, String descP, String imgP) {
         this.name = name;
         this.lastName = lastName;
         this.descP = descP;
         this.imgP = imgP;
     }
+ 
 
-   
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-   
+    
     public String getName() {
         return name;
     }
@@ -66,12 +51,12 @@ public class Person {
         return lastName;
     }
 
-  
+    
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
- 
+    
     public String getDescP() {
         return descP;
     }
@@ -86,11 +71,9 @@ public class Person {
         return imgP;
     }
 
-  
+   
     public void setImgP(String imgP) {
         this.imgP = imgP;
     }
-
-  
     
 }

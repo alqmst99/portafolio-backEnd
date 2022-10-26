@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 package com.Pierini.Portafolio.Dto;
 
 import java.util.Collection;
@@ -16,12 +11,12 @@ public class JwtDto {
 private String token;
 private  String Bearer = "Bearer";
 private String nameUser;
-private  Collection <? extends GrantedAuthority>authority;
+private  Collection <? extends GrantedAuthority>authorities;
 
-    public JwtDto(String token, String nameUser, Collection<? extends GrantedAuthority> authority) {
+    public JwtDto(String token, String nameUser, Collection<? extends GrantedAuthority> authorities) {
         this.token = token;
         this.nameUser = nameUser;
-        this.authority = authority;
+        this.authorities = authorities;
     }
 
     public String getToken() {
@@ -48,12 +43,12 @@ private  Collection <? extends GrantedAuthority>authority;
         this.nameUser = nameUser;
     }
 
-    public Collection<? extends GrantedAuthority> getAuthority() {
-        return authority;
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return authorities;
     }
 
-    public void setAuthority(Collection<? extends GrantedAuthority> authority) {
-        this.authority = authority;
+    public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
+        this.authorities = authorities;
     }
 
    

@@ -19,27 +19,33 @@ import org.springframework.transaction.annotation.Transactional;
 public class ExperienceService  {
    @Autowired
     IExperienceRepo expRepo;
-   public List<Experience>list(){
+
+    public List<Experience> list(){
        return expRepo.findAll();
    }
-public Optional <Experience> getByNameE(String nameE){
+
+    public Optional <Experience> getByNameE(String nameE){
     return expRepo.findByNameE(nameE);
     
 }
- public Optional <Experience> getOne(int id){
+
+    public Optional <Experience> getOne(int id){
     return expRepo.findById(id);
 }
-    
-public void save(Experience exp){
+
+    public void save(Experience exp){
     expRepo.save(exp);
 }
-public void delete (int id){
+
+    public void delete(int id){
     expRepo.deleteById(id);
 }
-public boolean existsById(int id){
+
+    public boolean existsById(int id){
     return expRepo.existsById(id);
 }
-public boolean existsByNameE(String nameE){
+
+    public boolean existsByNameE(String nameE){
     return expRepo.existsByNameE(nameE);
 }
 

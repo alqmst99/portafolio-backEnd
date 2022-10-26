@@ -33,15 +33,16 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author Pieirni Nahuel Nicolas
  */
+
 @RestController
-@RequestMapping("/Auth")
-@CrossOrigin
+@RequestMapping("/auth")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class AuthController {
 
     @Autowired
     PasswordEncoder passwordEncoder;
     @Autowired
-    AuthenticationManager  authManager;
+    AuthenticationManager authManager;
     @Autowired
     UsuarioService usuarioService;
     @Autowired
@@ -49,13 +50,14 @@ public class AuthController {
     @Autowired
     JwtProvider jwtProvider;
 
-    @PostMapping("/new")
+    
+    @PostMapping("/create")
     //new user
-    public ResponseEntity<?> nuevo(@Valid @RequestBody NewUser newUser, BindingResult bindingResult) {
+    public ResponseEntity<?> create(@Valid @RequestBody NewUser newUser, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity(new Mensaje("Field poorly compose"), HttpStatus.BAD_REQUEST);
         }
-        if (usuarioService.existsByNameUser(newUser.getNameUser())) {
+        if (usuarioService.existsByUser(newUser.getNameUser())) {
             return new ResponseEntity(new Mensaje("This User is a ready exist"), HttpStatus.BAD_REQUEST);
         }
 
@@ -77,12 +79,13 @@ public class AuthController {
     }
 
     // login
-    @PostMapping("/Login")
-    public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUser loginUser, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return new ResponseEntity(new Mensaje("field not maching"), HttpStatus.BAD_REQUEST);
-        }
 
+   
+    @PostMapping("/login")
+    public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUser loginUser, BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return new ResponseEntity(new Mensaje("field not maching"), HttpStatus.BAD_REQUEST);
+        
         Authentication authentication = authManager.authenticate(new UsernamePasswordAuthenticationToken(loginUser.getNameUser(), loginUser.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String Jwt = jwtProvider.generateToken(authentication);

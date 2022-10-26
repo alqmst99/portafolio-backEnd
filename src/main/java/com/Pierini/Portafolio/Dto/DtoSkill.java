@@ -11,32 +11,38 @@ public class DtoSkill {
 @NotBlank
 private String name;
 @NotBlank
-private int percent;
+private int porcent;
 //constructors
 
+    
     public DtoSkill() {
     }
 
-    public DtoSkill(String name, int percent) {
+    
+    public DtoSkill(String name, int porcent) {
         this.name = name;
-        this.percent = percent;
+        this.porcent = porcent;
     }
 //Getters & Setters
 
+   
     public String getName() {
         return name;
     }
 
+    
     public void setName(String name) {
         this.name = name;
     }
 
-    public int getPercent() {
-        return percent;
+    
+    public int getPorcent() {
+        return porcent;
     }
 
-    public void setPercent(int percent) {
-        this.percent = percent;
+    
+    public void setPorcent(int porcent) {
+        this.porcent = porcent;
     }
     
 }

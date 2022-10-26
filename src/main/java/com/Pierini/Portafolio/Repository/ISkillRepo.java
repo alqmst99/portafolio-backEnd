@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
-
 package com.Pierini.Portafolio.Repository;
 
 import com.Pierini.Portafolio.Entity.Skill;
@@ -17,6 +12,10 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface ISkillRepo extends JpaRepository<Skill, Integer>{
+
+   
     Optional<Skill> findByName(String name);
-public boolean existsByName(String name);
+
+   
+    public boolean existsByName(String name);
 }

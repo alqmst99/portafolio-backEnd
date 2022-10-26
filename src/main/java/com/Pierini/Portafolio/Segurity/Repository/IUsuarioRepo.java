@@ -12,11 +12,12 @@ import org.springframework.stereotype.Repository;
  * @author Nahue
  */
 @Repository
-public interface IUsuarioRepo extends JpaRepository<Usuario, Integer>{
-    Optional<Usuario>findByNameUser(String nameUser);
-    boolean existsByNameUser (String nameUser);
-    boolean existsByEmail(String email);
-   
 
-    
+public interface IUsuarioRepo extends JpaRepository <Usuario, Integer>{
+
+    Optional <Usuario> findByNameUser(String nameUser);
+
+    boolean existsByNameUser(String nameUser);
+
+    boolean existsByEmail(String email);
 }

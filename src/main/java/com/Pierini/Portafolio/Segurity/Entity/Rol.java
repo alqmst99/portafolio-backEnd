@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 package com.Pierini.Portafolio.Segurity.Entity;
 
 /**
@@ -10,7 +5,7 @@ package com.Pierini.Portafolio.Segurity.Entity;
  * @author Pieirni Nahuel Nicolas 
  */
 import com.Pierini.Portafolio.Segurity.enums.RolName;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -22,6 +17,7 @@ import javax.validation.constraints.NotNull;
  *
  * @author Pieirni Nahuel Nicolas 
  */
+
 @Entity
 public class Rol {
 @Id
@@ -31,15 +27,13 @@ private int id;
 @Enumerated(EnumType.STRING)
 private RolName rolName;
 
-    
-    public Rol() {
+       public Rol() {
     }
 
     public Rol(RolName rolName) {
         this.rolName = rolName;
     }
 
-   
     public int getId() {
         return id;
     }

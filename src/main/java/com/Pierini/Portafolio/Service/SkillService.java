@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 package com.Pierini.Portafolio.Service;
 
 import com.Pierini.Portafolio.Entity.Skill;
@@ -18,29 +13,39 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Pieirni Nahuel Nicolas 
  *@email nahuel.pierini90@hotmail.com
  */
+
 @Service
 @Transactional
 public class SkillService {
     @Autowired
     ISkillRepo skillRepo;
+
+  
     public List<Skill> list(){
         return skillRepo.findAll();
     }
+
     public Optional<Skill> getOne(int id){
         return skillRepo.findById(id);
     }
+
+   
     public Optional<Skill> getByName(String name){
         return skillRepo.findByName(name);
     }
-    public void save (Skill skill){
+
+    public void save(Skill skill){
         skillRepo.save(skill);
     }
-    public void delete (int id){
+
+    public void delete(int id){
         skillRepo.deleteById(id);
     }
+
     public boolean existsById(int id){
         return skillRepo.existsById(id);
     }
+
     public boolean existsByName(String name){
         return skillRepo.existsByName(name);
     }

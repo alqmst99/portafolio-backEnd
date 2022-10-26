@@ -1,10 +1,11 @@
 package com.Pierini.Portafolio.Service;
 
 
+
 import com.Pierini.Portafolio.Entity.Person;
-import com.Pierini.Portafolio.Interface.IPersonService;
 import com.Pierini.Portafolio.Repository.IPersonRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,31 +14,37 @@ import org.springframework.stereotype.Service;
  * @author Pieirni Nahuel Nicolas 
  */
 @Service
-public class ImpPersonService implements IPersonService {
+public class ImpPersonService  {
     @Autowired 
-    IPersonRepository ipersonRepository;
+    IPersonRepository ipersonRepo;
+   
+    public List<Person> list(){
+       return ipersonRepo.findAll();
+   }
+
+    public Optional <Person> getByName(String name){
+    return ipersonRepo.findByName(name);
     
-    @Override
-    public List<Person> getPersons() {
-    List <Person> Person= ipersonRepository.findAll();
-    return Person;
-    }
+}
 
-    @Override
-    public void savePerson(Person person) {
-        ipersonRepository.save(person);
-    }
+    public Optional <Person> getOne(int id){
+    return ipersonRepo.findById(id);
+}
+    public void save(Person person){
+    ipersonRepo.save(person);
+}
 
-    @Override
-    public void deletePerson(Long id) {
-   ipersonRepository.deleteById(id);
-    }
+    public void delete(int id){
+    ipersonRepo.deleteById(id);
+}
 
-    @Override
-    public Person findPerson(Long id) {
-    Person person =ipersonRepository.findById(id).orElse(null);
-    return person;
-    }
-    
+   
+    public boolean existsById(int id){
+    return ipersonRepo.existsById(id);
+}
+
+    public boolean existsByName(String name){
+    return ipersonRepo.existsByName(name);
+}
 
 }

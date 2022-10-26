@@ -19,9 +19,11 @@ public class Projects {
     private String descP;
     //constructors
 
+   
     public Projects() {
     }
 
+    
     public Projects(String name, String imgP, String descP) {
         this.name = name;
         this.imgP = imgP;
@@ -29,26 +31,32 @@ public class Projects {
     }
     //getters & setters
 
+    
     public int getId() {
         return id;
     }
 
+   
     public void setId(int id) {
         this.id = id;
     }
 
+  
     public String getName() {
         return name;
     }
 
+   
     public void setName(String name) {
         this.name = name;
     }
 
+  
     public String getImgP() {
         return imgP;
     }
 
+   
     public void setImgP(String imgP) {
         this.imgP = imgP;
     }
@@ -57,6 +65,7 @@ public class Projects {
         return descP;
     }
 
+    
     public void setDescP(String descP) {
         this.descP = descP;
     }
