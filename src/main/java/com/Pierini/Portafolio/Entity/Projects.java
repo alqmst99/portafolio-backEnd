@@ -15,8 +15,9 @@ public class Projects {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
  private int id ;
     private String name;
-    private String imgP;
+   
     private String descP;
+     private String imgP;
     //constructors
 
    
@@ -24,10 +25,10 @@ public class Projects {
     }
 
     
-    public Projects(String name, String imgP, String descP) {
+    public Projects(String name, String descP, String imgP) {
         this.name = name;
-        this.imgP = imgP;
         this.descP = descP;
+        this.imgP = imgP;
     }
     //getters & setters
 

@@ -61,7 +61,7 @@ public class ExperienceController  {
             return new ResponseEntity(new Mensaje("this field in obligatory"),HttpStatus.BAD_REQUEST);
         if (expServ.existsByNameE(dtoExp.getNameE()))
             return new ResponseEntity(new Mensaje("this experience i a ready exists"),HttpStatus.BAD_REQUEST);
-        Experience exp= new Experience(dtoExp.getNameE(), dtoExp.getDescE(),dtoExp.getDateI(),dtoExp.getDateF());
+        Experience exp= new Experience(dtoExp.getNameE(),dtoExp.getDateI(),dtoExp.getDateF(), dtoExp.getDescE());
         expServ.save(exp);
         return new ResponseEntity(new Mensaje("Experience hab bean created"),HttpStatus.OK);
     }
@@ -69,7 +69,7 @@ public class ExperienceController  {
 
     
     @PreAuthorize ("hasRole('ADMIN')")
-    @PutMapping("/update")
+    @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable ("id")int id, @RequestBody DtoExperience dtoExp){
         //validations
         if(!expServ.existsById(id))
@@ -82,9 +82,9 @@ public class ExperienceController  {
             return new ResponseEntity(new Mensaje("this field in obligatory"),HttpStatus.BAD_REQUEST);
         Experience exp = expServ.getOne(id).get();
         exp.setNameE(dtoExp.getNameE());
-        exp.setDescE(dtoExp.getDescE());
         exp.setDateI(dtoExp.getDateI());
         exp.setDateF(dtoExp.getDateF());
+        exp.setDescE(dtoExp.getDescE());
         expServ.save(exp);
         return new ResponseEntity(new Mensaje("Experience hab bean update"),HttpStatus.OK);
     }

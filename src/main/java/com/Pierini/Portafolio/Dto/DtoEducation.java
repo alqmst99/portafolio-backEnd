@@ -14,7 +14,7 @@ public class DtoEducation {
 
 private String nameE;
 @NotBlank
-private String descE;
+private String descEd;
 @NotBlank
 private String dateI;
 @NotBlank
@@ -25,9 +25,9 @@ private String dateF;
     }
 
     
-    public DtoEducation(String nameE, String descE, String dateI, String dateF) {
+    public DtoEducation(String nameE, String descEd, String dateI, String dateF) {
         this.nameE = nameE;
-        this.descE = descE;
+        this.descEd = descEd;
         this.dateI = dateI;
         this.dateF = dateF;
     }
@@ -42,13 +42,13 @@ private String dateF;
         this.nameE = nameE;
     }
 
-    public String getDescE() {
-        return descE;
+    public String getDescEd() {
+        return descEd;
     }
 
     
     public void setDescE(String descE) {
-        this.descE = descE;
+        this.descEd = descEd;
     }
 
     

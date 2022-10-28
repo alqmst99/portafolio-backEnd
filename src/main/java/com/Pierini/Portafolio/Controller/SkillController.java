@@ -65,7 +65,7 @@ public class SkillController {
 
     
     @PreAuthorize ("hasRole('ADMIN')")
-    @PutMapping("/update")
+    @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable ("id")int id, @RequestBody DtoSkill dtoS){
         //validations
         if(!skillS.existsById(id))

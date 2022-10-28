@@ -63,7 +63,7 @@ public class ProjectController {
         if (projService.existsByName(dtoProj.getName())) 
             return new ResponseEntity(new Mensaje("the education is a ready exist"), HttpStatus.BAD_REQUEST);
 
-            Projects projects = new Projects(dtoProj.getName(), dtoProj.getImgP(), dtoProj.getDescP());
+            Projects projects = new Projects(dtoProj.getName(), dtoProj.getDescP(), dtoProj.getImgP());
             projService.save(projects);
             return new ResponseEntity(new Mensaje("Projects hab bean add"), HttpStatus.OK);
 
@@ -72,7 +72,7 @@ public class ProjectController {
 
    
     @PreAuthorize ("hasRole('ADMIN')")
- @PostMapping("/update")
+ @PostMapping("/update/{id}")
   public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody DtoProjects dtoProj){
       //validations
       //exist id?

@@ -45,9 +45,8 @@ public class EduactionController {
        Education edu = eduServ.getOne(id).get();
         return new ResponseEntity(edu, HttpStatus.OK);
     }
-    //create education
-
-   
+    
+//create education  
     @PreAuthorize ("hasRole('ADMIN')")
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody DtoEducation dtoEdu) {
@@ -58,7 +57,7 @@ public class EduactionController {
         if (eduServ.existsByNameE(dtoEdu.getNameE())) 
             return new ResponseEntity(new Mensaje("the education is a ready exist"), HttpStatus.BAD_REQUEST);
 
-            Education education = new Education(dtoEdu.getNameE(), dtoEdu.getDescE(), dtoEdu.getDateI(), dtoEdu.getDateF());
+            Education education = new Education(dtoEdu.getNameE(), dtoEdu.getDateI(), dtoEdu.getDateF(), dtoEdu.getDescEd());
             eduServ.save(education);
             return new ResponseEntity(new Mensaje("Education hab bean add"), HttpStatus.OK);
 
@@ -66,8 +65,8 @@ public class EduactionController {
     //Update Education
 
    
-    @PreAuthorize ("hasRole('ADMIN')")
- @PostMapping("/update")
+ @PreAuthorize ("hasRole('ADMIN')")
+ @PutMapping("/update/{id}")
   public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody DtoEducation dtoEdu){
       //validations
       //exist id?
@@ -77,9 +76,9 @@ public class EduactionController {
            return new ResponseEntity (new Mensaje("the education i a ready exists"),HttpStatus.BAD_REQUEST);
       Education edu= eduServ.getOne(id).get();
       edu.setNameE(dtoEdu.getNameE());
-      edu.setDescEd(dtoEdu.getDescE());
       edu.setDateI(dtoEdu.getDateI());
       edu.setDateF(dtoEdu.getDateF());
+      edu.setDescEd(dtoEdu.getDescEd());
       eduServ.save(edu);
       return new ResponseEntity(new Mensaje("Education had bean update"),HttpStatus.OK);
  }
