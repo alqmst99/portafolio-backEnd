@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
  *@email nahuel.pierini90@hotmail.com
  */
 @RestController
-@RequestMapping("/project")
+@RequestMapping("project")
 @CrossOrigin(origins = "https://frontend-portafolio-pierini.web.app/")
 public class ProjectController {
 

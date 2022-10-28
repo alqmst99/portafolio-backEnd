@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 *@email nahuel.pierini90@hotmail.com
  */
 @RestController
-@RequestMapping("/experience")
+@RequestMapping("experience")
 @CrossOrigin (origins = "https://frontend-portafolio-pierini.web.app/")
 public class ExperienceController  {
     @Autowired

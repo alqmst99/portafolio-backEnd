@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @CrossOrigin (origins = "https://frontend-portafolio-pierini.web.app/")
-@RequestMapping("/skill")
+@RequestMapping("skill")
 public class SkillController {
     @Autowired
     SkillService skillS;
