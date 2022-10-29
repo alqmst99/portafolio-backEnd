@@ -60,10 +60,10 @@ ImpPersonService personService;
             return new ResponseEntity(new Mensaje("Person hab bean add"), HttpStatus.OK);
 
         }*/
+   
     //Update Person
 
-   
-    @PreAuthorize ("hasRole('ADMIN')")
+ @PreAuthorize ("hasRole('ADMIN')")
  @PutMapping("/update/{id}")
     
   public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody DtoPerson dtoPerson){
